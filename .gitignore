@@ -1,0 +1,16 @@
+# Claude Code
+.claude/
+
+# Original JPG images (PNG versions are the ones used)
+assets/char/*.jpg
+
+# Temp files
+*_fresh.png
+*_t.png
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# ZIP packages
+*.zip

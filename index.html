@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星月物語 ～Starfall Memories～</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game">
+    <div id="bg-layer"></div>
+    <div id="character-layer"></div>
+
+    <div id="text-box" class="hidden" onclick="advance()">
+      <div id="name-box">旁白</div>
+      <div id="dialogue-text"></div>
+    </div>
+
+    <div id="choice-area"></div>
+
+    <div id="ui-overlay">
+      <button class="ui-btn" onclick="openBacklog()">📜记录</button>
+      <button class="ui-btn" onclick="toggleHideUI()">👁隐藏</button>
+      <button class="ui-btn" onclick="openSaveLoad('save')">💾存档</button>
+      <button class="ui-btn" onclick="openSaveLoad('load')">📂读档</button>
+      <button class="ui-btn" onclick="backToTitle()">🏠标题</button>
+    </div>
+
+    <div id="title-screen">
+      <div id="game-title">星月物語</div>
+      <div id="game-subtitle">Starfall Memories</div>
+      <button id="start-btn" onclick="startGame()">开始游戏</button>
+      <button id="continue-btn" onclick="continueGame()">继续游戏</button>
+    </div>
+
+    <div id="save-load-menu">
+      <h2 id="sl-title" style="color:#f0eef6;margin-bottom:20px">存档</h2>
+      <div id="sl-slots" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:30px"></div>
+      <button class="ui-btn" onclick="closeSaveLoad()" style="padding:10px 30px;color:#f0eef6;border-color:#a78bfa;">返回</button>
+    </div>
+
+    <div id="backlog-overlay" onclick="closeBacklog()">
+      <div id="backlog-container" onclick="event.stopPropagation()">
+        <h2 id="backlog-title">📜 对话记录</h2>
+        <div id="backlog-list"></div>
+        <button class="ui-btn" onclick="closeBacklog()" style="margin-top:16px;padding:10px 30px;color:#f0eef6;border-color:#a78bfa;">关闭（Esc）</button>
+      </div>
+    </div>
+
+    <div id="transition-overlay"></div>
+
+    <div id="ending-overlay">
+      <div class="ending-title" id="ending-title">～END～</div>
+      <div class="ending-text" id="ending-text"></div>
+      <button class="ending-btn" onclick="backToTitle()">返回标题</button>
+    </div>
+  </div>
+
+  <script src="js/characters.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/story.js"></script>
+</body>
+</html>
